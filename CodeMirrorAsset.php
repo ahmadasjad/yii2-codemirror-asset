@@ -3,6 +3,7 @@
 namespace ahmadasjad\CodeMirrorAsset;
 
 use yii\web\AssetBundle;
+use yii\web\View;
 /**
  * Description of CodeMirrorAsset
  *
@@ -16,5 +17,9 @@ class CodeMirrorAsset extends AssetBundle
     ];
     public $css = [
         'lib/codemirror.css'
+    ];
+
+    public $jsOptions = [
+        'position'=>View::POS_HEAD
     ];
 }
