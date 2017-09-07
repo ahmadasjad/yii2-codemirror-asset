@@ -7,6 +7,9 @@
         "yiisoft/yii2": ">= 2.0",
         "bower-asset/codemirror": ">=5.0"
     },
+    "autoload": {
+        "psr-4": {"ahmadasjad\\CodeMirrorAsset\\": ""}
+    },
     "license": "MIT",
     "authors": [
         {
