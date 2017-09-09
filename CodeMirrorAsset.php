@@ -22,4 +22,16 @@ class CodeMirrorAsset extends AssetBundle
     public $jsOptions = [
         'position'=>View::POS_HEAD
     ];
+
+    public static function register($view, $options = []) {
+        if(isset($options['mode'])){
+            \Yii::$container->set('ahmadasjad\CodeMirrorAsset\CodeMirrorAsset', [
+                'js'=>[
+                    'lib/codemirror.js',
+                    'mode/'.$options['mode'].'/'.$options['mode'].'.js'
+                ]
+            ]);
+        }
+        parent::register($view);
+    }
 }
