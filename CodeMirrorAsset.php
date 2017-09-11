@@ -24,14 +24,26 @@ class CodeMirrorAsset extends AssetBundle
     ];
 
     public static function register($view, $options = []) {
+        $js = ['lib/codemirror.js'];
         if(isset($options['mode'])){
-            \Yii::$container->set('ahmadasjad\CodeMirrorAsset\CodeMirrorAsset', [
-                'js'=>[
-                    'lib/codemirror.js',
-                    'mode/'.$options['mode'].'/'.$options['mode'].'.js'
-                ]
-            ]);
+            if(!is_array($options['mode'])){
+                $options['mode'] = [$options['mode']];
+            }
+            foreach ($options['mode'] as $key => $mode) {
+                $js[] = 'mode/'.$mode.'/'.$mode.'.js';
+            }
         }
+        if(isset($options['addon'])){
+            if(!is_array($options['addon'])){
+                $options['addon'] = [$options['addon']];
+            }
+            foreach ($options['addon'] as $key => $addon) {
+                $js[] = 'addon/'.$addon.'.js';
+            }
+        }
+        \Yii::$container->set('ahmadasjad\CodeMirrorAsset\CodeMirrorAsset', [
+            'js'=>$js
+        ]);
         parent::register($view);
     }
 }
