@@ -5,7 +5,7 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">= 2.0",
-        "bower-asset/codemirror": ">=5.0"
+        "bower-asset/codemirror": "~5"
     },
     "autoload": {
         "psr-4": {"ahmadasjad\\CodeMirrorAsset\\": ""}
